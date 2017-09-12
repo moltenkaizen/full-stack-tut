@@ -1,12 +1,33 @@
 <template>
-  <div>
-  <h1>Register</h1>
-  <form @submit.prevent="register">
-    <input v-model="email" type="email" placeholder="email">
-    <input v-model="password" type="password" placeholder="password">
-    <button>Register</button>
-  </form>
-  </div>
+  <v-layout column>
+    <v-flex xs6 offset-xs3>
+      <div class="white elevation-2">
+        <v-toolbar flat dense class="cyan" dark>
+          <v-toolbar-title>Register</v-toolbar-title>
+        </v-toolbar>
+        <div class="pl-4 pr-4 pb-2 pt-2">
+
+        <v-form  @submit.prevent="register">
+          <v-text-field
+            label="Email"
+            v-model="email"
+          ></v-text-field>
+          <br>
+          <v-text-field
+            label="Password"
+            type="password"
+            v-model="password"
+          ></v-text-field>
+          <br>
+          <v-btn class="cyan" dark>Register</v-btn>
+        </v-form>
+
+        </div>
+          <div v-html="error" class="error">{{ error }}</div>
+      </div>
+    </v-flex>
+
+  </v-layout>
 </template>
 
 <script>
@@ -29,6 +50,7 @@
             password: this.password
           })
           console.log(response.data)
+          this.error = ''
 //          this.$store.dispatch('setToken', response.data.token)
 //          this.$store.dispatch('setUser', response.data.user)
         } catch (error) {

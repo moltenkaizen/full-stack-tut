@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <!--<img src="./assets/logo.png">-->
+    <v-app>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
 
@@ -20,4 +22,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+/*.input-group--text-field input {*/
+  /*border-bottom: 1px solid black;*/
+/*}*/
 </style>
